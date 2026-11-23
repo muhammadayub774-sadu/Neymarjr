@@ -1,0 +1,157 @@
+/* =========================================
+   PLANSHETLAR UCHUN MOSLASHUV (MAX 1024PX)
+   ========================================= */
+@media (max-width: 1024px) {
+    .slide-content h1 {
+        font-size: 40px;
+    }
+
+    .categories-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .footer-top {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cart-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-dashboard {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================================
+   MOBIL QURILMALAR UCHUN MOSLASHUV (MAX 768PX)
+   ========================================= */
+@media (max-width: 768px) {
+    .mobile-menu-btn {
+        display: flex;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 56px;
+        left: 0;
+        right: 0;
+        background-color: var(--bg-primary);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 24px;
+        gap: 18px;
+        border-bottom: 1px solid var(--border-color);
+        transform: translateY(-120%);
+        opacity: 0;
+        pointer-events: none;
+        transition: var(--transition);
+    }
+
+    .nav-links.open {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .nav-link {
+        font-size: 17px;
+        width: 100%;
+    }
+
+    .carousel-slide {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 20px;
+    }
+
+    .slide-content h1 {
+        font-size: 32px;
+    }
+
+    .slide-content p {
+        font-size: 16px;
+    }
+
+    .slide-buttons {
+        justify-content: center;
+    }
+
+    .slide-image img {
+        height: 240px;
+    }
+
+    .carousel-arrow {
+        display: none;
+    }
+
+    .categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .promo-banner {
+        flex-direction: column;
+        padding: 28px;
+        text-align: center;
+    }
+
+    .promo-text h2 {
+        font-size: 28px;
+    }
+
+    .modal-card {
+        padding: 24px 18px;
+    }
+
+    .modal-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-top {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+}
+
+/* =========================================
+   KICHIK EKRANLI TELEFONLAR (MAX 480PX)
+   ========================================= */
+@media (max-width: 480px) {
+    .container,
+    .section-block {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .section-header h2 {
+        font-size: 26px;
+    }
+
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .catalog-controls,
+    .search-box,
+    .search-box input,
+    .custom-select {
+        width: 100%;
+    }
+}   

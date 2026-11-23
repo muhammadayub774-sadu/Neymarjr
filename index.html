@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="uz" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple Store O‘zbekiston — Rasmiy uslubdagi internet-do‘kon</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./responsive.css">
+</head>
+<body>
+
+    <!-- KIRISH ANIMATSIYASI (SPLASH SCREEN) -->
+    <div id="splash-screen" class="splash-screen">
+        <div class="splash-content">
+            <svg class="apple-splash-logo" viewBox="0 0 170 170" fill="currentColor">
+                <path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.13-1.9-14.34-6.08-3.69-3.03-7.61-7.82-11.77-14.37-5.04-7.91-9.19-16.86-12.44-26.85-3.25-9.99-4.87-19.55-4.87-28.69 0-10.74 2.68-19.63 8.05-26.68 5.37-7.05 12.15-10.67 20.34-10.87 4.13 0 8.95 1.24 14.46 3.71 5.51 2.47 9.07 3.74 10.68 3.81 1.34 0 5.31-1.46 11.91-4.38 6.6-2.92 12.16-4.18 16.68-3.78 12.56 1.01 22.01 5.95 28.34 14.82-11.17 6.77-16.64 16.19-16.41 28.25.22 9.43 3.74 17.28 10.55 23.54 4.74 4.44 10.35 7.36 16.83 8.76-1.36 4.11-2.85 8.1-4.47 11.98zM119.22 31.01c0 7.45-2.72 14.41-8.17 20.89-6.56 7.67-14.49 12.1-23.11 11.39-.11-.91-.17-1.87-.17-2.88 0-7.15 3.11-14.81 8.64-21.08 2.76-3.17 6.26-5.81 10.51-7.92 4.24-2.11 8.26-3.27 12.06-3.49.16 1.04.24 2.07.24 3.09z"/>
+            </svg>
+            <p class="splash-text">Apple Store O‘zbekiston</p>
+        </div>
+    </div>
+
+    <!-- BILDIRISHNOMA (TOAST) -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- NAVIGATSIYA PANELI -->
+    <header class="navbar">
+        <div class="nav-container">
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menyuni ochish">
+                <span></span>
+                <span></span>
+            </button>
+
+            <a href="#" class="nav-logo" data-route="home" aria-label="Bosh sahifa">
+                <svg viewBox="0 0 170 170" fill="currentColor" width="20" height="20">
+                    <path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.13-1.9-14.34-6.08-3.69-3.03-7.61-7.82-11.77-14.37-5.04-7.91-9.19-16.86-12.44-26.85-3.25-9.99-4.87-19.55-4.87-28.69 0-10.74 2.68-19.63 8.05-26.68 5.37-7.05 12.15-10.67 20.34-10.87 4.13 0 8.95 1.24 14.46 3.71 5.51 2.47 9.07 3.74 10.68 3.81 1.34 0 5.31-1.46 11.91-4.38 6.6-2.92 12.16-4.18 16.68-3.78 12.56 1.01 22.01 5.95 28.34 14.82-11.17 6.77-16.64 16.19-16.41 28.25.22 9.43 3.74 17.28 10.55 23.54 4.74 4.44 10.35 7.36 16.83 8.76-1.36 4.11-2.85 8.1-4.47 11.98zM119.22 31.01c0 7.45-2.72 14.41-8.17 20.89-6.56 7.67-14.49 12.1-23.11 11.39-.11-.91-.17-1.87-.17-2.88 0-7.15 3.11-14.81 8.64-21.08 2.76-3.17 6.26-5.81 10.51-7.92 4.24-2.11 8.26-3.27 12.06-3.49.16 1.04.24 2.07.24 3.09z"/>
+                </svg>
+            </a>
+
+            <nav class="nav-links" id="nav-links">
+                <a href="#" class="nav-link active" data-route="home">Bosh sahifa</a>
+                <a href="#" class="nav-link" data-route="catalog" data-category="all">Mahsulotlar</a>
+                <a href="#" class="nav-link" data-route="catalog" data-category="iPhone">iPhone</a>
+                <a href="#" class="nav-link" data-route="catalog" data-category="MacBook">MacBook</a>
+                <a href="#" class="nav-link" data-route="catalog" data-category="AirPods">AirPods</a>
+                <a href="#" class="nav-link" data-route="catalog" data-category="Aksessuarlar">Aksessuarlar</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="icon-btn" id="search-toggle-btn" title="Qidiruv" aria-label="Qidiruv">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+
+                <button class="icon-btn" id="theme-toggle-btn" title="Kun/Tun rejimi" aria-label="Kun va tun rejimi">
+                    <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+
+                <button class="icon-btn" data-route="profile" title="Profil" aria-label="Profil">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </button>
+
+                <button class="icon-btn cart-btn" data-route="cart" title="Savatcha" aria-label="Savatcha">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <path d="M16 10a4 4 0 0 1-8 0"></path>
+                    </svg>
+                    <span class="cart-badge" id="cart-badge">0</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- TEZKOR QIDIRUV PANELI -->
+        <div class="search-dropdown hidden" id="search-dropdown">
+            <div class="search-inner">
+                <div class="search-input-wrapper">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <input type="text" id="global-search-input" placeholder="Mahsulot nomini yozing (masalan: iPhone 16 Pro, MacBook)..." autocomplete="off">
+                    <button id="search-close-btn" class="text-btn">Bekor qilish</button>
+                </div>
+                <div class="instant-search-results" id="instant-search-results"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ASOSIY SAHIFA KONTENTI -->
+    <main id="app-main">
+
+        <!-- 1. BOSH SAHIFA (HOME VIEW) -->
+        <section id="view-home" class="page-view active">
+            <!-- HERO KARUSEL -->
+            <div class="hero-carousel" id="hero-carousel">
+                <div class="carousel-track" id="carousel-track">
+                    <!-- Slayd 1 -->
+                    <div class="carousel-slide active">
+                        <div class="slide-content">
+                            <span class="badge-new">Yangi</span>
+                            <h1>iPhone 16 Pro</h1>
+                            <p>Titan korpus. A18 Pro chipi. Cheksiz imkoniyatlar.</p>
+                            <div class="slide-buttons">
+                                <button class="btn btn-primary" onclick="app.openProductModal(1)">Xarid qilish</button>
+                                <button class="btn btn-secondary" onclick="app.openProductModal(1)">Batafsil</button>
+                            </div>
+                        </div>
+                        <div class="slide-image">
+                            <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=1000&q=85" alt="iPhone 16 Pro">
+                        </div>
+                    </div>
+
+                    <!-- Slayd 2 -->
+                    <div class="carousel-slide">
+                        <div class="slide-content">
+                            <span class="badge-new">M3 Max kuch-qudrati</span>
+                            <h1>MacBook Pro</h1>
+                            <p>Professionallar uchun yaratilgan eng tezkor noutbuk.</p>
+                            <div class="slide-buttons">
+                                <button class="btn btn-primary" onclick="app.openProductModal(4)">Xarid qilish</button>
+                                <button class="btn btn-secondary" onclick="app.openProductModal(4)">Batafsil</button>
+                            </div>
+                        </div>
+                        <div class="slide-image">
+                            <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1000&q=85" alt="MacBook Pro">
+                        </div>
+                    </div>
+
+                    <!-- Slayd 3 -->
+                    <div class="carousel-slide">
+                        <div class="slide-content">
+                            <span class="badge-new">Yangi avlod ovozi</span>
+                            <h1>AirPods Pro 2</h1>
+                            <p>Faol shovqinni bostirish va mukammal akustika.</p>
+                            <div class="slide-buttons">
+                                <button class="btn btn-primary" onclick="app.openProductModal(7)">Xarid qilish</button>
+                                <button class="btn btn-secondary" onclick="app.openProductModal(7)">Batafsil</button>
+                            </div>
+                        </div>
+                        <div class="slide-image">
+                            <img src="https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?auto=format&fit=crop&w=1000&q=85" alt="AirPods Pro 2">
+                        </div>
+                    </div>
+                </div>
+
+                <button class="carousel-arrow prev" id="carousel-prev" aria-label="Oldingi slayd">❮</button>
+                <button class="carousel-arrow next" id="carousel-next" aria-label="Keyingi slayd">❯</button>
+                <div class="carousel-dots" id="carousel-dots"></div>
+            </div>
+
+            <!-- KATEGORIYALAR BO‘LIMI -->
+            <div class="container section-block">
+                <div class="section-header">
+                    <h2>Kategoriyalar</h2>
+                    <a href="#" class="link-arrow" data-route="catalog" data-category="all">Barcha mahsulotlar →</a>
+                </div>
+                <div class="categories-grid">
+                    <div class="category-card" data-route="catalog" data-category="iPhone">
+                        <img src="https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?auto=format&fit=crop&w=400&q=80" alt="iPhone modellari">
+                        <h3>iPhone modellari</h3>
+                    </div>
+                    <div class="category-card" data-route="catalog" data-category="MacBook">
+                        <img src="https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?auto=format&fit=crop&w=400&q=80" alt="MacBook modellari">
+                        <h3>MacBook modellari</h3>
+                    </div>
+                    <div class="category-card" data-route="catalog" data-category="AirPods">
+                        <img src="https://images.unsplash.com/photo-1588423771073-b8903fbb85b5?auto=format&fit=crop&w=400&q=80" alt="AirPods modellari">
+                        <h3>AirPods modellari</h3>
+                    </div>
+                    <div class="category-card" data-route="catalog" data-category="Apple Watch">
+                        <img src="https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?auto=format&fit=crop&w=400&q=80" alt="Apple Watch">
+                        <h3>Apple Watch</h3>
+                    </div>
+                    <div class="category-card" data-route="catalog" data-category="iPad">
+                        <img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=400&q=80" alt="iPad">
+                        <h3>iPad</h3>
+                    </div>
+                    <div class="category-card" data-route="catalog" data-category="Aksessuarlar">
+                        <img src="https://images.unsplash.com/photo-1615526675159-e248c3021d3f?auto=format&fit=crop&w=400&q=80" alt="Aksessuarlar">
+                        <h3>Aksessuarlar</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ENG YANGI MAHSULOTLAR -->
+            <div class="container section-block">
+                <div class="section-header">
+                    <h2>Eng yangi mahsulotlar</h2>
+                    <p class="subtitle">Eng so‘nggi texnologiyalar bilan tanishing</p>
+                </div>
+                <div class="products-grid" id="home-featured-products"></div>
+            </div>
+
+            <!-- PROMO BANNER -->
+            <div class="container section-block">
+                <div class="promo-banner">
+                    <div class="promo-text">
+                        <span>Apple Watch Ultra 2</span>
+                        <h2>Sarguzashtlar uchun yaratilgan.</h2>
+                        <p>Eng yorqin displey, mustahkam titan korpus va 36 soatgacha avtonom ishlash quvvati.</p>
+                        <button class="btn btn-primary" onclick="app.openProductModal(9)">Xarid qilish</button>
+                    </div>
+                    <div class="promo-img">
+                        <img src="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?auto=format&fit=crop&w=800&q=85" alt="Apple Watch Ultra 2">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. MAHSULOTLAR KATALOGI (CATALOG VIEW) -->
+        <section id="view-catalog" class="page-view">
+            <div class="container section-block">
+                <div class="catalog-header">
+                    <div>
+                        <h1 id="catalog-title">Barcha mahsulotlar</h1>
+                        <p class="subtitle" id="catalog-count">12 ta mahsulot topildi</p>
+                    </div>
+
+                    <div class="catalog-controls">
+                        <div class="search-box">
+                            <input type="text" id="catalog-search-input" placeholder="Nom bo‘yicha qidirish...">
+                        </div>
+
+                        <select id="sort-select" class="custom-select" aria-label="Saralash">
+                            <option value="newest">Eng yangi mahsulotlar</option>
+                            <option value="price-asc">Narx: arzondan qimmatga</option>
+                            <option value="price-desc">Narx: qimmatdan arzonga</option>
+                            <option value="name-asc">Nomi: A dan Z gacha</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- KATEGORIYA FILTRLARI -->
+                <div class="filter-pills" id="category-filters">
+                    <button class="pill active" data-category="all">Barchasi</button>
+                    <button class="pill" data-category="iPhone">iPhone modellari</button>
+                    <button class="pill" data-category="MacBook">MacBook modellari</button>
+                    <button class="pill" data-category="AirPods">AirPods modellari</button>
+                    <button class="pill" data-category="Apple Watch">Apple Watch</button>
+                    <button class="pill" data-category="iPad">iPad</button>
+                    <button class="pill" data-category="Aksessuarlar">Aksessuarlar</button>
+                </div>
+
+                <!-- MAHSULOTLAR RO‘YXATI -->
+                <div class="products-grid" id="catalog-products-grid"></div>
+            </div>
+        </section>
+
+        <!-- 3. SAVATCHA VA BUYURTMA (CART & CHECKOUT VIEW) -->
+        <section id="view-cart" class="page-view">
+            <div class="container section-block">
+                <h1>Savatcha</h1>
+                <div id="cart-content" class="cart-layout"></div>
+            </div>
+        </section>
+
+        <!-- 4. PROFIL SAHIFASI (PROFILE VIEW) -->
+        <section id="view-profile" class="page-view">
+            <div class="container section-block">
+                <div id="profile-container"></div>
+            </div>
+        </section>
+
+        <!-- 5. MA'LUMOT SAHIFALARI (BIZ HAQIMIZDA, YETKAZIB BERISH, MAXFIYLIK) -->
+        <section id="view-info" class="page-view">
+            <div class="container section-block info-page-container" id="info-page-content"></div>
+        </section>
+
+    </main>
+
+    <!-- MAHSULOT BATAFSIL MODALI -->
+    <div id="product-modal" class="modal hidden">
+        <div class="modal-backdrop" id="modal-backdrop"></div>
+        <div class="modal-card">
+            <button class="modal-close" id="modal-close-btn" aria-label="Yopish">×</button>
+            <div class="modal-body" id="modal-body-content"></div>
+        </div>
+    </div>
+
+    <!-- FOOTER (BOG‘LANISH BO‘LIMI) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-col">
+                    <div class="footer-brand">
+                        <svg viewBox="0 0 170 170" fill="currentColor" width="22" height="22">
+                            <path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.13-1.9-14.34-6.08-3.69-3.03-7.61-7.82-11.77-14.37-5.04-7.91-9.19-16.86-12.44-26.85-3.25-9.99-4.87-19.55-4.87-28.69 0-10.74 2.68-19.63 8.05-26.68 5.37-7.05 12.15-10.67 20.34-10.87 4.13 0 8.95 1.24 14.46 3.71 5.51 2.47 9.07 3.74 10.68 3.81 1.34 0 5.31-1.46 11.91-4.38 6.6-2.92 12.16-4.18 16.68-3.78 12.56 1.01 22.01 5.95 28.34 14.82-11.17 6.77-16.64 16.19-16.41 28.25.22 9.43 3.74 17.28 10.55 23.54 4.74 4.44 10.35 7.36 16.83 8.76-1.36 4.11-2.85 8.1-4.47 11.98zM119.22 31.01c0 7.45-2.72 14.41-8.17 20.89-6.56 7.67-14.49 12.1-23.11 11.39-.11-.91-.17-1.87-.17-2.88 0-7.15 3.11-14.81 8.64-21.08 2.76-3.17 6.26-5.81 10.51-7.92 4.24-2.11 8.26-3.27 12.06-3.49.16 1.04.24 2.07.24 3.09z"/>
+                        </svg>
+                        <span>Apple Store O‘zbekiston</span>
+                    </div>
+                    <p class="footer-desc">O‘zbekistondagi rasmiy sifatli Apple mahsulotlari internet-do‘koni. Kafolatlangan mahsulotlar va tezkor yetkazib berish xizmati.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Mahsulotlar</h4>
+                    <ul>
+                        <li><a href="#" data-route="catalog" data-category="iPhone">iPhone</a></li>
+                        <li><a href="#" data-route="catalog" data-category="MacBook">MacBook</a></li>
+                        <li><a href="#" data-route="catalog" data-category="AirPods">AirPods</a></li>
+                        <li><a href="#" data-route="catalog" data-category="Apple Watch">Apple Watch</a></li>
+                        <li><a href="#" data-route="catalog" data-category="iPad">iPad</a></li>
+                        <li><a href="#" data-route="catalog" data-category="Aksessuarlar">Aksessuarlar</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Ma'lumotlar</h4>
+                    <ul>
+                        <li><a href="#" data-route="info" data-info="about">Biz haqimizda</a></li>
+                        <li><a href="#" data-route="info" data-info="delivery">Yetkazib berish shartlari</a></li>
+                        <li><a href="#" data-route="info" data-info="privacy">Maxfiylik siyosati</a></li>
+                        <li><a href="#" data-route="profile">Profil</a></li>
+                        <li><a href="#" data-route="cart">Savatcha</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Bog‘lanish</h4>
+                    <ul class="contact-list">
+                        <li>
+                            <strong>Telefon:</strong>
+                            <a href="tel:+998916100000" class="phone-link">+998 91 610 00 00</a>
+                        </li>
+                        <li>
+                            <strong>Elektron pochta:</strong>
+                            <a href="mailto:info@applestore.uz">info@applestore.uz</a>
+                        </li>
+                        <li>
+                            <strong>Telegram:</strong>
+                            <a href="https://t.me/applestore_uz" target="_blank" rel="noopener">@applestore_uz</a>
+                        </li>
+                        <li>
+                            <strong>Instagram:</strong>
+                            <a href="https://instagram.com/applestore.uz" target="_blank" rel="noopener">@applestore.uz</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 Apple Store O‘zbekiston. Barcha huquqlar himoyalangan.</p>
+                <p>Toshkent shahri, O‘zbekiston</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./app.js"></script>
+</body>
+</html>
